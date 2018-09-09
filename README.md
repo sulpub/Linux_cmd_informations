@@ -2,54 +2,54 @@
 Information on Linux command
 
 # File actions
-'''
+```
 ls -als           // list all files
 mkdir titi        // make directory "titi"
 rmdir -rf  titi   // remove all file on the "titi" directory
 cd                // Go to your home directory
 cd ..             // Go to the upper directory
-'''
+```
 
 # update linux with root profile
-'''
+```
 sudo apt-get update  //update all the package on your distribution
 sudo atp-get upgrade //upgrade all package installed on your distribution
 sudo apt-get install gimp //exemple to install gimp software for example you can replace gimp by other software....
 sudo apt-get remove gimp  //remove gimp software for example. You can replace gimp by other software for removing....
-'''
+```
 
 # network information
-'''
+```
 iwconfig //see status of wireless card.
 ifconfig //see adress ip of each network card.
-'''
+```
 
 # Main Issues for my specific problems
 ## ISSUE 1 disconnect wifi card intel PRO wireless 3945ABG on LUBUNTU
-'''
+```
 sudo rmmod iwl3945
 sudo modprobe iwl3945
-'''
+```
 
 ## ISSUE 2 connect on windows remote desktop
-'''
+```
 install rdesktop
   sudo apt-get install rdesktop
 Run rdesktop with rdp to IP.IP.IP.IP adress with screen size 1440x900 with 16bits color and sound stay on the distant computer.
   rdesktop -r sound:remote -k fr -g 1440x900 -a 16 IP.IP.IP.IP
   rdesktop -k fr -a 8 IP.IP.IP.IP  //color 8bit full screen keyboard FR
-'''
+```
 
 ## ISSUE 3 ssh connexion
-'''
+```
 ssh user@IP.IP.IP.IP //run ssh connexion with user "user" at adress IP.IP.IP.IP
   ssh -X user@IP.IP.IP.IP //run ssh with server X. 
-'''
+```
 ## ISSUE 4 test network bandwith
-'''
+```
 nc -lk 2112 >/dev/null  //run on the remote computer 10.10.10.1
 dd if=/dev/zero bs=16000 count=625 | nc -v 10.10.10.1 2112  //transfert 10MB to the remote computer and evaluate the bandwith.
-'''
+```
 Response example on the local computer :
   Connection to 10.10.10.1 2112 port [tcp/*] succeeded!
   625+0 enregistrements lus
