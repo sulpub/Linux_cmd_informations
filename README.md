@@ -49,9 +49,23 @@ ssh -X user@IP.IP.IP.IP //run ssh with server X.
 ```
 nc -lk 2112 >/dev/null  //run on the remote computer 10.10.10.1
 dd if=/dev/zero bs=16000 count=625 | nc -v 10.10.10.1 2112  //transfert 10MB to the remote computer and evaluate the bandwith.
-```
+
 Response example on the local computer :
   Connection to 10.10.10.1 2112 port [tcp/*] succeeded!
   625+0 enregistrements lus
   625+0 enregistrements écrits
   10000000 bytes (10 MB, 9,5 MiB) copied, 4,08256 s, 2,4 MB/s
+```
+## ISSUE 5 : Hard drive informations
+```
+sudo blkid  //To know informations concerning hard drive.
+
+sudo hdparm -C  /dev/sda      //See the hard drive status
+sudo hdparm -y  /dev/sda      //Put the hard drive sda in standby mode
+
+sudo hdparm -S 1 /dev/sda     //le chiffre 1 correspond au temps par multiples de 5 secondes. 
+sudo hdparm -S 120 /dev/sda1  //put the disk in standby mode after 120*5s=10 minutes
+
+sudo hdparm -I /dev/sda | grep level    //To verify if the hard drive support low power management. If the disk support low power you will see 254 by default.
+
+```
