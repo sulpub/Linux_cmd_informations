@@ -24,11 +24,37 @@ iwconfig //see status of wireless card.
 ifconfig //see adress ip of each network card.
 ```
 
+# network configuration example
+```
+sudo nano /etc/network/interfaces //edit the network conf file.
+config example
+STATIC
+ iface wlp5s0 inet static
+ address 192.168.1.10
+ netmask 255.255.255.0
+ gateway 192.168.1.254
+ wpa-psk "replace by your wpa password securit"
+ wpa-driver wext
+ wpa-key-mgmt WPA-PSK
+ wpa-proto WPA2
+ wpa-ssid "replace by your SSID"
+ auto wlp5s0
+
+DYNAMIC
+ iface wlp5s0 inet dhcp
+ auto wlp5s0
+
+After saving file run these commands :
+ sudo service networking force-reload
+ sudo service networking restart
+ sudo iwconfig  //for controlling if your connexion was OK
+```
+
 # Main Issues for my specific problems
 ## ISSUE 1 disconnect wifi card intel PRO wireless 3945ABG on LUBUNTU
 ```
-sudo rmmod iwl3945
-sudo modprobe iwl3945
+sudo rmmod iwl3945     //Software disconnect the wifi board 
+sudo modprobe iwl3945  //Software reconnect the wifi board
 ```
 
 ## ISSUE 2 connect on windows remote desktop
