@@ -22,6 +22,12 @@ sudo apt-get remove gimp  //remove gimp software for example. You can replace gi
 ```
 iwconfig //see status of wireless card.
 ifconfig //see adress ip of each network card.
+
+sudo iwlist scan  //scan les connexion wifi
+
+//arret demmarage carte wifi
+sudo ifconfig wlp5s0 up    //connexion de la carte wlp5s0
+sudo ifconfig wlp5s0 down  //deconnexion de la carte wlp5s0
 ```
 
 # network configuration example
