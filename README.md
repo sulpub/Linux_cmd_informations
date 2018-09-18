@@ -55,8 +55,14 @@ After saving file run these commands :
  sudo service networking restart
  sudo iwconfig  //for controlling if your connexion was OK
 ```
+# dns configuration
+```
+sudo nano /etc/resolv.conf
+add dns as well :
+ nameserver 212.27.40.240
+```
 
-# Main Issues for my specific problems
+# Main Issues for my specifics problems
 ## ISSUE 1 disconnect wifi card intel PRO wireless 3945ABG on LUBUNTU
 ```
 sudo rmmod iwl3945     //Software disconnect the wifi board 
