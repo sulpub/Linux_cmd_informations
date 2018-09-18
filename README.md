@@ -107,3 +107,11 @@ sudo hdparm -S 120 /dev/sda1  //put the disk in standby mode after 120*5s=10 min
 sudo hdparm -I /dev/sda | grep level    //To verify if the hard drive support low power management. If the disk support low power you will see 254 by default.
 
 ```
+
+## ISSUE 6 : Delete shell history
+```
+Delete specific line
+ history -d 505   // delete ligne 505 in the istory command
+or edit the local bash history 
+ nano ~/.bash_history 
+```
