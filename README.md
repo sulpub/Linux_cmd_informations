@@ -115,3 +115,29 @@ Delete specific line
 or edit the local bash history 
  nano ~/.bash_history 
 ```
+
+## ISSUE 7 : Crontab 
+```
+Edit the crontab with this command
+
+**crontab -e**
+
+add line for each automated task
+
+mm hh jj MMM JJJ [user] task > log
+
+    mm : minutes (00-59).
+    hh : hours (00-23) .
+    jj : day of the month (01-31).
+    MMM : months (01-12 or three letters : jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec).
+    JJJ : day of the week (1-7 or three letters : mon, tue, wed, thu, fri, sat, sun).
+    user (optional) : user name for execute the task.
+    task : command to execute.
+    > log (optional) : log output to log file. If no log file is specify, an email will be send to the local user.
+
+For each unit use this syntax :
+
+ 1. 1-5 : Unit time from 1 to 5.
+ 2. */6 : reapeat at each 6 unit of time (example for each 6 hour).
+ 3. 2,7 : time unit 2 and 7.
+```
