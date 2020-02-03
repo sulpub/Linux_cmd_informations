@@ -117,11 +117,12 @@ or edit the local bash history
 ```
 
 ## ISSUE 7 : Crontab 
-```
+
 Edit the crontab with this command
 
 **crontab -e**
 
+```
 add line for each automated task
 
 mm hh jj MMM JJJ [user] task > log
@@ -140,4 +141,13 @@ For each unit use this syntax :
  1. 1-5 : Unit time from 1 to 5.
  2. */6 : reapeat at each 6 unit of time (example for each 6 hour).
  3. 2,7 : time unit 2 and 7.
-```
+``` 
+**Examples:**
+ 
+Run script.sh at each minute : */1 * * * * /home/user/script.sh > /dev/null 2>&1
+
+Run script1.sh at each 6 hours :  00 */6 * * * /home/user/script1.sh
+
+Run ntpdate at each hours for update the date machine :  00 */1 * * * /usr/sbin/ntpdate fr.pool.ntp.org
+
+
