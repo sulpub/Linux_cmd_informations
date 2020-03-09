@@ -55,6 +55,44 @@ After saving file run these commands :
  sudo service networking restart
  sudo iwconfig  //for controlling if your connexion was OK
 ```
+# Disable power management wifi
+
+This procedure is to allow wifi to stay permanently on.
+
+```
+To disable the Wi-Fi power management at boot time, follow these steps:
+
+Create a file in the /lib/systemd/system directory named wifi-power-management-off.service with the following content:
+
+[Unit]
+Description=Disable power management for wlan0
+Requires=sys-subsystem-net-devices-wlan0.device
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/iwconfig wlan0 power off
+
+[Install]
+WantedBy=multi-user.target
+
+Type the following command:
+# systemctl enable wifi-power-management-off.service
+
+To verify that the service is functioning properly, reboot the board and type the following command:
+# iwconfig wlan0
+
+You should see Power Management: off on the screen.
+
+Power Management: off
+
+To disable the service type the following command:
+
+# systemctl disable wifi-power-management-off.service
+
+Source : https://www.debian-fr.org/t/wifi-se-mettre-en-power-off-au-demarrage/71825
+```
+
 # dns configuration
 ```
 sudo nano /etc/resolv.conf
