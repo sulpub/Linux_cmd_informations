@@ -93,6 +93,25 @@ To disable the service type the following command:
 Source : https://www.debian-fr.org/t/wifi-se-mettre-en-power-off-au-demarrage/71825
 ```
 
+if don't work you can test this:
+
+```
+Open this file with your favorite text editor, I use nano here:
+sudo nano /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
+
+By default there is:
+[connection]
+wifi.powersave = 3
+
+Change the value to 2. Reboot for the change to take effect.
+
+Possible values for the wifi.powersave field are:
+ NM_SETTING_WIRELESS_POWERSAVE_DEFAULT (0): use the default value
+ NM_SETTING_WIRELESS_POWERSAVE_IGNORE  (1): don't touch existing setting
+ NM_SETTING_WIRELESS_POWERSAVE_DISABLE (2): disable powersave
+ NM_SETTING_WIRELESS_POWERSAVE_ENABLE  (3): enable powersave
+```
+
 # dns configuration
 ```
 sudo nano /etc/resolv.conf
