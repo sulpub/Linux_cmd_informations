@@ -207,4 +207,26 @@ Run script1.sh at each 6 hours :  00 */6 * * * /home/user/script1.sh
 
 Run ntpdate at each hours for update the date machine :  00 */1 * * * /usr/sbin/ntpdate fr.pool.ntp.org
 
+## ISSUE 8 : ADD HTACCESS in APACHE
 
+For activate the htaccess support in Apache
+
+edit the apache2.conf file :
+``` 
+sudo nano /etc/apache2/apache2.conf
+``` 
+and replace these line
+
+**AllowOverride None**
+
+By
+
+**AllowOverride All**
+
+You can use the nana function ^W for finding these lines
+After these changes save the modifications.
+
+Restart the webserver
+``` 
+sudo service apache2 restart
+``` 
