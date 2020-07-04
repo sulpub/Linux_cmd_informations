@@ -230,3 +230,31 @@ Restart the webserver
 ``` 
 sudo service apache2 restart
 ``` 
+
+
+## ISSUE 9 : LOG ANALYSIS
+
+install **petit** software [LINK](http://crunchtools.com/software/petit/)
+
+more informations : [tecmint.com](https://www.tecmint.com/petiti-log-analysis-tool-for-linux-sysadmins/)
+
+``` 
+sudo apt-get install petit
+``` 
+
+for analysis run these command
+
+``` 
+# hash log file
+petit --hash --fingerprint /var/log/messages
+
+# Finding Number Of Lines Produced by a Daemon
+petit --hash --daemon /var/log/syslog
+
+#Graphing a Log File
+petit --sgraph /var/log/syslog
+
+#Tracking Particular Words in a Log File
+cat /var/log/messages | grep error | petit --mgraph
+
+``` 
